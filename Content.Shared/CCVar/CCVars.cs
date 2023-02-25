@@ -22,7 +22,7 @@ namespace Content.Shared.CCVar
         ///     Name of the rules txt file in the "Resources/Server Info" dir. Include the extension.
         /// </summary>
         public static readonly CVarDef<string> RulesFile =
-            CVarDef.Create("server.rules_file", "Rules.txt", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.rules_file", "race-of-minds_rp.txt", CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         ///     A loc string for what should be displayed as the title on the Rules window.
@@ -308,6 +308,11 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> DiscordAHelpAvatar =
             CVarDef.Create("discord.ahelp_avatar", string.Empty, CVar.SERVERONLY);
 
+        // <summary>
+        /// URL of the discord webhook which will relay all bans messages
+        // </summary>
+        public static readonly CVarDef<string> DiscordBanWebhook =
+            CVarDef.Create("discord.ban_webhook", string.Empty, CVar.SERVERONLY);
         /*
          * Suspicion
          */
@@ -1187,10 +1192,10 @@ namespace Content.Shared.CCVar
             CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportMaximumWidth =
-            CVarDef.Create("viewport.maximum_width", 21, CVar.REPLICATED);
+            CVarDef.Create("viewport.maximum_width", 29, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportWidth =
-            CVarDef.Create("viewport.width", 21, CVar.CLIENTONLY | CVar.ARCHIVE);
+            CVarDef.Create("viewport.width", 29, CVar.CLIENTONLY | CVar.ARCHIVE);
 
         /*
          * UI
