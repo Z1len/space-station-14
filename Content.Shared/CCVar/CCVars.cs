@@ -313,6 +313,9 @@ namespace Content.Shared.CCVar
         // </summary>
         public static readonly CVarDef<string> DiscordBanWebhook =
             CVarDef.Create("discord.ban_webhook", string.Empty, CVar.SERVERONLY);
+
+        public static readonly CVarDef<string> DiscordNotificationWebhook =
+            CVarDef.Create("discord.notification_webhook", string.Empty, CVar.SERVERONLY);
         /*
          * Suspicion
          */

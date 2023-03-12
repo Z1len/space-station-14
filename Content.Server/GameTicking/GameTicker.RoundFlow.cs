@@ -229,7 +229,7 @@ namespace Content.Server.GameTicking
             UpdateLateJoinStatus();
             AnnounceRound();
             UpdateInfoText();
-
+            RaiseLocalEvent(new RoundStartEvent(RoundId));
 #if EXCEPTION_TOLERANCE
             }
             catch (Exception e)
@@ -276,6 +276,7 @@ namespace Content.Server.GameTicking
             RunLevel = GameRunLevel.PostRound;
 
             ShowRoundEndScoreboard(text);
+            RaiseLocalEvent(new RoundEndEvent(RoundId));
         }
 
         public void ShowRoundEndScoreboard(string text = "")
