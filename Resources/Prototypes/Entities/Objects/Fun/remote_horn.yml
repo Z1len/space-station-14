@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseItem
+  id: RemoteHorn
+  name: remote bike horn
+  description: A very technological bike horn with remote connection.
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequency: 7575
+      transmitFrequency: 7575
+      receiveAll: True
+      autoConnect: True
+    - type: WirelessNetworkConnection
+      range: 50
+    - type: RemoteHorn
+      sound: /Audio/Items/bikehorn.ogg
+    - type: Sprite
+      sprite: Objects/Fun/remotehorn.rsi
+      state: icon
+    - type: Item
+      sprite: Objects/Fun/remotehorn.rsi
+      size: 5
+    - type: Clothing
+      sprite: Objects/Fun/remotehorn.rsi
+      slots: [Belt]
+      quickEquip: false
+    - type: ItemCooldown
+    - type: UseDelay
+      delay: 0.5
