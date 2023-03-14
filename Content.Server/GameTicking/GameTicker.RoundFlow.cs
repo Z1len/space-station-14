@@ -276,7 +276,6 @@ namespace Content.Server.GameTicking
             RunLevel = GameRunLevel.PostRound;
 
             ShowRoundEndScoreboard(text);
-            RaiseLocalEvent(new RoundEndEvent(RoundId));
         }
 
         public void ShowRoundEndScoreboard(string text = "")
@@ -295,7 +294,7 @@ namespace Content.Server.GameTicking
 
             //Get the timespan of the round.
             var roundDuration = RoundDuration();
-
+            RaiseLocalEvent(new RoundEndEvent(RoundId,roundDuration));
             //Generate a list of basic player info to display in the end round summary.
             var listOfPlayerInfo = new List<RoundEndMessageEvent.RoundEndPlayerInfo>();
             // Grab the great big book of all the Minds, we'll need them for this.

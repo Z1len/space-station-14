@@ -28,17 +28,21 @@ public sealed class RoundNotificationsSystem : EntitySystem
         if(string.IsNullOrEmpty(_webhook_url))
             return;
         var curMap = _mapManager.GetSelectedMap();
-        var text = Loc.GetString("discord-start-round",
-            ("id", e.RoundId),
-#pragma warning disable CS8602
-            ("map", curMap.MapName)
-#pragma warning restore CS8602
-        );
-        var payload = new WebhookPayload()
+
+        if (curMap != null)
         {
-            Content = text
-        };
-        SendDiscordMessage(payload);
+            var text = Loc.GetString("discord-start-round",
+                ("id", e.RoundId),
+
+                ("map", curMap.MapName)
+
+            );
+            var payload = new WebhookPayload()
+            {
+                Content = text
+            };
+            SendDiscordMessage(payload);
+        }
     }
 
     private void OnEnded(RoundEndEvent e)
@@ -47,8 +51,9 @@ public sealed class RoundNotificationsSystem : EntitySystem
             return;
         var payload = new WebhookPayload()
         {
-            Content = Loc.GetString("discord-end-round", ("id",e.RoundId))
+            Content = Loc.GetString("discord-end-round", ("id", e.RoundId), ("hour", e.Duration.Hours), ("min", e.Duration.Minutes))
         };
+
         SendDiscordMessage(payload);
     }
 
