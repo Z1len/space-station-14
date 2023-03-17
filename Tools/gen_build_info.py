@@ -19,8 +19,8 @@ SERVER_FILES = [
     "SS14.Server_osx-x64.zip"
 ]
 
-VERSION = os.environ['CI_COMMIT_REF_NAME'] + "-" + os.environ['CI_COMMIT_SHA']
-FORK_ID = "workbench"
+VERSION = os.environ['GITHUB_SHA']
+FORK_ID = "RoS"
 BUILD_URL = f"https://ss14.lolicon.monster/builds/builds/{{FORK_VERSION}}/{FILE}"
 MANIFEST_URL = f"https://ss14.lolicon.monster/cdn/version/{{FORK_VERSION}}/manifest"
 MANIFEST_DOWNLOAD_URL = f"https://ss14.lolicon.monster/cdn/version/{{FORK_VERSION}}/download"
